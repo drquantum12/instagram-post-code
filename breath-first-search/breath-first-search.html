@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breath First Search</title>
+    <script src="utility.js"></script>
+    </head>
+<body>
+    <div class="input-controls">
+        <input type="number" id="sol-input">
+        <button id="search-sol">start search</button>
+        <h3>Searching for <span id="sol-input-vis"></span></h3>
+    </div>
+    <div class="container" style="display: flex; flex-wrap: wrap;">
+        <div style="position: relative;">
+            <canvas height="600" width="600" id="canvas" style="z-index: 1; position: absolute;"></canvas>
+            <canvas height="600" width="600" id="canvas_bg" style="z-index: -1;"></canvas>
+        </div>
+        <div style="position: relative">
+            <canvas height="600" width="600" id="canvas_graph" style="z-index: 1; position: absolute;"></canvas>
+            <canvas height="600" width="600" id="canvas_graph_bg" style="z-index: -1; background-color: black;"></canvas>
+        </div>
+    </div>
+</body>
+<script>
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+
+    const canvas_bg = document.getElementById("canvas_bg");
+    const ctx_bg = canvas_bg.getContext("2d");
+
+    const canvas_graph = document.getElementById("canvas_graph");
+    const ctx_graph = canvas_graph.getContext("2d");
+
+    const canvas_graph_bg = document.getElementById("canvas_graph_bg");
+    const ctx_graph_bg = canvas_graph_bg.getContext("2d");
+
+    const matrix_height = canvas.getAttribute("height") - 50;
+    const matrix_width = canvas.getAttribute("width") - 50;
+
+    const network_graph_height = canvas_graph.getAttribute("height");
+    const network_graph_width = canvas_graph.getAttribute("width");
+    draw_matrix(50, 50, matrix_width, matrix_height, 6);
+    document.getElementById("search-sol").addEventListener("click", ()=>{
+        const val = parseInt(document.getElementById("sol-input").value);
+        build_graph(matrix_arr, val);
+    });
+
+    document.getElementById("sol-input").addEventListener("input", (event)=>{
+        document.getElementById("sol-input-vis").innerText=event.target.value;
+    })
+</script>
+
+</html>

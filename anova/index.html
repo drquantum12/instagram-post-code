@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANOVA</title>
+    <script src="utility.js"></script>
+    <style>
+        
+        .canvas-container{
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="canvas-container">
+    <canvas id="sim-canvas" height="800" width="800" ></canvas>
+</div>
+
+<script>
+    const canvas = document.getElementById("sim-canvas");
+    const ctx = canvas.getContext("2d");
+
+    setup();
+    update_container_particles();
+    </script>
+    
+</body>
+</html>
