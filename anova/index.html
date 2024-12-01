@@ -14,6 +14,7 @@
     </style>
 </head>
 <body>
+    <button onclick="get_info()">INFO</button>
     <div class="canvas-container">
     <canvas id="sim-canvas" height="800" width="800" ></canvas>
 </div>
@@ -24,6 +25,16 @@
 
     setup();
     update_container_particles();
+
+
+    const get_info = () => {
+        let info_text = "In this simulation there are 3 particle containers with 10 particles each. We are doing an ANOVA test on these three containers to see if they have same distribution of velocity among the particles or not.\
+        In our case we have degree of freedoms as 2 in numerator and 9 in denominator. For a significance level of 0.05, if our F-statistic value is below 3.354 \
+        it means all containers have particle velocities taken from same distribution else not. In our case we can see it well below this threshold value. (Which should be as we have assigned velocities for particles from same distribution\
+        that is, normal distribution)."
+
+         alert(info_text);
+    }
     </script>
     
 </body>
